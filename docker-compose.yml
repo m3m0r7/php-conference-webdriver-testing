@@ -1,0 +1,24 @@
+version: "3"
+services:
+  php:
+    build: docker/php
+    container_name: php
+    tty: true
+    volumes:
+      - ./frameworks:/var/www/html
+    ports:
+      - 12000:80
+  mysql:
+    build: docker/mysql
+    container_name: mysql
+    environment:
+      - MYSQL_DATABASE=php-conference
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=0000
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+    tty: true
+  selenium:
+    build: docker/selenium
+    container_name: selenium
+    tty: true
+
