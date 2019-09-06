@@ -5,6 +5,12 @@ This repository is WebDriver testing example files.
 - PHP Conference Hokkaido 2019
 - PHP Conference Okinawa 2019
 
+# Run
+
+```
+docker-compose up --build
+```
+
 # Paths
 
 | Service | URL |
