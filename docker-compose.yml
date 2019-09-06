@@ -11,15 +11,6 @@ services:
       - 12001:12001
       - 12100:12100
       - 12200:12200
-  mysql:
-    build: docker/mysql
-    container_name: mysql
-    environment:
-      - MYSQL_DATABASE=php-conference
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=0000
-      - MYSQL_ALLOW_EMPTY_PASSWORD=1
-    tty: true
   selenium:
     build: docker/selenium
     container_name: selenium
