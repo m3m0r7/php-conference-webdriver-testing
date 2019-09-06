@@ -16,8 +16,9 @@ docker-compose up --build
 | Service | URL |
 | ------- | ------- |
 | phpinfo | http://localhost:12000/ |
-| CakePHP3 | http://localhost:12001/ |
-| Laravel5 | http://localhost:12002/ |
+| Original | http://localhost:12001/ |
+| CakePHP3 | http://localhost:12100/ |
+| Laravel5 | http://localhost:12200/ |
 
 # License
 MIT
