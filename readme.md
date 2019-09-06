@@ -17,6 +17,14 @@ composer setup
 docker-compose up --build
 ```
 
+# Get started testing
+
+| Service | Command |
+| ------- | ------- |
+| Original | docker exec -it php ./composer test:original |
+| CakePHP3 | docker exec -it php ./composer test:cakephp3 |
+| Laravel6 | docker exec -it php ./composer test:laravel6 |
+
 # Paths
 
 | Service | URL |
