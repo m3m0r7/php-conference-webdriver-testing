@@ -15,4 +15,11 @@ services:
     build: docker/selenium
     container_name: selenium
     tty: true
+    ports:
+      - 4444:4444
+    environment:
+      - SCREEN_WIDTH=1280
+      - SCREEN_HEIGHT=768
+      - SCREEN_DEPTH=24
+      - SCREEN_DPI=74
 
