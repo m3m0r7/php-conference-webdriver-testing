@@ -1,11 +1,10 @@
 {
-    "require": {
-        "facebook/webdriver": "^1.7"
-    },
+    "require": {},
     "scripts": {
-      "post-install-cmd": [
+      "setup": [
         "cd ./frameworks/cakephp3 && composer install -n",
-        "cd ./frameworks/laravel6 && composer install -n"
+        "cd ./frameworks/laravel6 && composer install -n",
+        "cd ./frameworks/original && composer install -n"
       ]
     }
 }
