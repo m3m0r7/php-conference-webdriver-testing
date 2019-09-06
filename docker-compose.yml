@@ -7,7 +7,10 @@ services:
     volumes:
       - ./frameworks:/var/www/html
     ports:
-      - 12000:80
+      - 12000:12000
+      - 12001:12001
+      - 12100:12100
+      - 12200:12200
   mysql:
     build: docker/mysql
     container_name: mysql
