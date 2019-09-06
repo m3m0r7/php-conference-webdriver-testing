@@ -21,9 +21,9 @@ docker-compose up --build
 
 | Service | Command |
 | ------- | ------- |
-| Original | docker exec -it php ./composer test:original |
-| CakePHP3 | docker exec -it php ./composer test:cakephp3 |
-| Laravel6 | docker exec -it php ./composer test:laravel6 |
+| Original | `docker exec -it php ./composer test:original` |
+| CakePHP3 | `docker exec -it php ./composer test:cakephp3` |
+| Laravel6 | `docker exec -it php ./composer test:laravel6` |
 
 # Paths
 
