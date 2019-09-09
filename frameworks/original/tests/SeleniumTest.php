@@ -37,6 +37,13 @@ class SeleniumTest extends TestCase
         );
     }
 
+    public function tearDown(): void
+    {
+        parent::tearDown();
+        $this->driver->quit();
+        unset($this->driver);
+    }
+
     public function testHasCSRFToken()
     {
         // Load original content
@@ -76,6 +83,33 @@ class SeleniumTest extends TestCase
 
     public function testHasNotCSRFToken()
     {
-        $this->markTestIncomplete('Incomplete.');
+        // Load original content
+        $this->driver->get('http://php:12001');
+
+        // Waiting for DOMContentLoaded
+        $this->driver->wait();
+
+        // Remove CSRF token
+        $this->driver->executeScript('document.querySelector(\'[name=\\\'csrf\\\']\').remove();');
+
+        $buttonElement = $this->driver->findElement(
+            WebDriverBy::cssSelector('.form [type="submit"]')
+        );
+
+        $buttonElement->click();
+
+        // Waiting 1 sec
+        $this->driver->wait(1);
+
+        // Get flash message
+        $flashMessageElement = $this->driver->findElement(
+            WebDriverBy::cssSelector('.flash-message')
+        );
+
+        // Assert.
+        $this->assertSame(
+            'CSRF トークンが送られてきていません。',
+            $flashMessageElement->getText()
+        );
     }
 }
