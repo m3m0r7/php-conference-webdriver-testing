@@ -44,7 +44,7 @@ class SeleniumTest extends TestCase
         unset($this->driver);
     }
 
-    public function testHasCSRFToken()
+    public function testHasAddedByJS()
     {
         // Load original content
         $this->driver->get('http://php:12001');
@@ -81,7 +81,7 @@ class SeleniumTest extends TestCase
         );
     }
 
-    public function testHasNotCSRFToken()
+    public function testHasNotAddedByJS()
     {
         // Load original content
         $this->driver->get('http://php:12001');
@@ -89,8 +89,8 @@ class SeleniumTest extends TestCase
         // Waiting for DOMContentLoaded
         $this->driver->wait();
 
-        // Remove CSRF token
-        $this->driver->executeScript('document.querySelector(\'[name=\\\'csrf\\\']\').remove();');
+        // Remove added_by_js
+        $this->driver->executeScript('document.querySelector(\'[name=\\\'added_by_js\\\']\').remove();');
 
         $buttonElement = $this->driver->findElement(
             WebDriverBy::cssSelector('.form [type="submit"]')
@@ -108,7 +108,7 @@ class SeleniumTest extends TestCase
 
         // Assert.
         $this->assertSame(
-            'CSRF トークンが送られてきていません。',
+            'added_by_js が送られてきていません。',
             $flashMessageElement->getText()
         );
     }

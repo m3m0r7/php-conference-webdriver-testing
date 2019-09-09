@@ -5,7 +5,7 @@
   </head>
   <body>
     <?php if (!empty($_POST)) : ?>
-      <p class="flash-message"><?= ($_POST['csrf'] ?? false) ? htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8') . 'が送られてきました。' : 'CSRF トークンが送られてきていません。'; ?></p>
+      <p class="flash-message"><?= ($_POST['added_by_js'] ?? false) ? htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8') . 'が送られてきました。' : 'added_by_js が送られてきていません。'; ?></p>
     <?php endif ?>
     <form class="form" action="./index.php" method="POST">
       <input type="text" name="message" />
@@ -13,11 +13,11 @@
     </form>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        const csrf = document.createElement('input');
-        csrf.name = 'csrf';
-        csrf.type = 'hidden';
-        csrf.value = '1';
-        document.querySelector('.form').append(csrf);
+        const addedByJS = document.createElement('input');
+        addedByJS.name = 'added_by_js';
+        addedByJS.type = 'hidden';
+        addedByJS.value = '1';
+        document.querySelector('.form').append(addedByJS);
       })
     </script>
   </body>
