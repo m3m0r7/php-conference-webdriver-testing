@@ -1,5 +1,4 @@
 {
-    "require": {},
     "scripts": {
       "setup": [
         "cd ./frameworks/cakephp3 && composer install -n",

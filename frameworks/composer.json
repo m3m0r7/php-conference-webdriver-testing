@@ -3,5 +3,7 @@
     "test:original": "cd original && vendor/bin/phpunit tests",
     "test:cakephp3": "cd cakephp3 && vendor/bin/phpunit tests",
     "test:laravel6": "cd laravel6 && vendor/bin/phpunit tests"
+  },
+  "require": {
   }
 }
