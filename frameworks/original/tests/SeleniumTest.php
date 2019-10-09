@@ -81,10 +81,7 @@ class SeleniumTest extends TestCase
                 400,
                 $statusCode,
                 $link . ' returns invalid status code ' . $statusCode);
-
-
         }
-
     }
 
     public function testHasAddedByJS()
